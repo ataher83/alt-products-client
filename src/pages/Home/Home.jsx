@@ -4,11 +4,12 @@ import Banner from "./Banner";
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import CraftCard from "../CraftCard/CraftCard";
-import OurArtist from "../OurArtist/OurArtist";
 import LocationMap from "../LocationMap/LocationMap";
 
 import { Fade, Slide } from "react-awesome-reveal";
 import ArtAndCraftCategories from "../ArtAndCraftCategories/ArtAndCraftCategories";
+import HeadingBanner from "./HeadingBanner";
+import OurTeam from "../OurTeam/OurTeam";
 
 
 
@@ -21,9 +22,10 @@ const Home = () => {
     return (
         <div className="">
             <Helmet>
-                <title>The Art Gallery | Home</title>
+                <title>The Alt Products | Home</title>
             </Helmet>
             <Banner></Banner>
+            <HeadingBanner></HeadingBanner>
 
 
             {/* Craft Items Section */}
@@ -88,7 +90,7 @@ const Home = () => {
             <ArtAndCraftCategories></ArtAndCraftCategories>
 
 
-            <OurArtist></OurArtist>
+            <OurTeam></OurTeam>
             <LocationMap></LocationMap>
             
 

@@ -1,21 +1,18 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Fade, Slide } from "react-awesome-reveal";
 
-const OurArtist = () => {
+const OurTeam = () => {
     return (
         <div className="flex gap-5  container mx-auto">
-            <Helmet>
-                <title>The Art Gallery | Our Artists</title>
-            </Helmet>
+            
 
             <div className="py-16 container mx-auto ">
-                <p className="text-center text-3xl font-semibold  text-purple-600   ">
+                <p className="text-center text-2xl font-bold  text-blue-600   ">
                     <Slide>
-                        <h1>Our Artists</h1>
+                        <h1>Our Team</h1>
                     </Slide></p>
-                    <p className="text-center text-lg  hidden md:block"> 
-                        <Fade delay={1e3} cascade damping={1e-1}> Meet our professional Artists, who will help you find your dream... </Fade>
+                    <p className="text-center text-lg text-blue-500 hidden md:block"> 
+                        <Fade delay={1e3} cascade damping={1e-1}> Meet with our professional Team members, who will help you find your right alternative products </Fade>
                     </p>
                 
 
@@ -24,14 +21,14 @@ const OurArtist = () => {
 
                     <div className="card w-96 bg-base-100 shadow-xl card-body items-center text-center">
                         <div className="avatar  ">
-                            <div className="w-72 rounded-lg  items-center text-center ">
-                                <img src="https://i.postimg.cc/8F35sF3s/artist1.jpg" />
+                            <div className="w-72 rounded-full  items-center text-center ">
+                                <img src="https://i.postimg.cc/FF6QWPbX/team-1.jpg" />
                             </div>
                         </div>
 
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-blue-500">Brittany Watkins</h2>
-                            <p>PAINTER, SCULPTOR, CONCEPTUAL ARTIST</p>
+                            <h2 className="card-title text-blue-500">Matt Haunz</h2>
+                            <p>Consultant, Alternative Tech Products</p>
                             <div className="card-actions">
                             <Link className=" text-blue-500 font-medium">View Profile</Link>
                             </div>
@@ -42,14 +39,14 @@ const OurArtist = () => {
 
                     <div className="card w-96 bg-base-100 shadow-xl card-body items-center text-center">
                         <div className="avatar  ">
-                            <div className="w-72 rounded-lg items-center text-center ">
-                                <img src="https://i.postimg.cc/XGCv5jSL/artist-2.jpg" />
+                            <div className="w-72 rounded-full items-center text-center ">
+                                <img src="https://i.postimg.cc/NfrvW1b9/team-2.jpg" />
                             </div>
                         </div>
 
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-blue-500">Vincent Fuller</h2>
-                            <p> OIL PAINTER, SCULPTOR, CARTOON DESIGNER</p>
+                            <h2 className="card-title text-blue-500">Jen Barnes</h2>
+                            <p> Consultant, Alternative Products Researcher</p>
                             <div className="card-actions">
                             <Link className=" text-blue-500 font-medium">View Profile</Link>
                             </div>
@@ -60,14 +57,14 @@ const OurArtist = () => {
 
                     <div className="card :w-96 bg-base-100 shadow-xl card-body items-center text-center">
                         <div className="avatar  ">
-                            <div className="w-72 rounded-lg  items-center text-center ">
-                                <img src="https://i.postimg.cc/SXjRyLgw/artist-3.jpg" />
+                            <div className="w-72 rounded-full  items-center text-center ">
+                                <img src="https://i.postimg.cc/C59TR1Mx/team-3.jpg" />
                             </div>
                         </div>
 
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-blue-500">Michelle Ramirez</h2>
-                            <p>PENCIL SKETCH ARTIST, SCULPTOR, CONCEPTUAL ARTIST</p>
+                            <h2 className="card-title text-blue-500">Dave Rosevelt</h2>
+                            <p>Consultant, Alternative Agro & Foods</p>
                             <div className="card-actions">
                             <Link className=" text-blue-500 font-medium">View Profile</Link>
                             </div>
@@ -81,4 +78,4 @@ const OurArtist = () => {
     );
 };
 
-export default OurArtist;
+export default OurTeam;

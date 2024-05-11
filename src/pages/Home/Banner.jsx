@@ -22,10 +22,10 @@ const Banner = () => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
-        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/gw9rsMMC/Landscape-Painting-Mountain-view-canvas-Forest-based-Landscape-1.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/Dwq7NQZy/Floral-Watercolor-Art.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/v1dHf4TM/Watercolour-Painting-Floral-Watercolor-Art-Animal-Watercolor-Portrait.webp" alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/1VzzXbtq/Oil-Painting-Realistic-Oil-Portrait-Abstract-Oil-Painting.webp" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/tTYYTc1m/14.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/pXqgFmmX/15.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/0QY42jgv/19.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide><img className='w-full h-96' src="https://i.postimg.cc/85Q3SW0w/20.jpg" alt="" /></SwiperSlide>
         </Swiper>
       </div>
     );

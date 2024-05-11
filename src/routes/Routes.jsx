@@ -12,6 +12,12 @@ import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 import Users from "../pages/Users/Users";
 import CraftDetails from "../pages/CraftDetails/CraftDetails";
 import ViewDetails from "./ViewDetails/ViewDetails";
+import ArtAndCraftCategories from "../pages/ArtAndCraftCategories/ArtAndCraftCategories";
+import Queries from "../pages/Queries/Queries";
+import RecommendationsForMe from "../pages/RecommendationsForMe/RecommendationsForMe";
+import MyQueries from "../pages/MyQueries/MyQueries";
+import MyRecommendations from "../pages/MyRecommendations/MyRecommendations";
+import AddQueries from "../pages/AddQueries/AddQueries";
 
 
   const router = createBrowserRouter([
@@ -27,9 +33,41 @@ import ViewDetails from "./ViewDetails/ViewDetails";
         
         },
         {
+            path:'/queries',
+            element: <Queries></Queries>,
+            // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+        },
+        {
+            path:'/recommendationsForMe',
+            element: <PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
+        },
+        {
+            path:'/myQueries',
+            element: <PrivateRoute><MyQueries></MyQueries></PrivateRoute>
+        },
+        {
+            path:'/addQueries',
+            element: <PrivateRoute><AddQueries></AddQueries></PrivateRoute>
+        },
+        {
+            path:'/myRecommendations',
+            element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
+        },
+
+
+
+
+
+
+        {
             path:'/allArtAndCraftItems',
             element: <AllArtAndCraftItems></AllArtAndCraftItems>,
             loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+        },
+        {
+            path:'/artAndCraftCategories',   
+            element: <ArtAndCraftCategories></ArtAndCraftCategories>,
+            loader: () => fetch('https://art-gallery-server-one.vercel.app/catagories')
         },
         {
             path:'/addCraftItem',

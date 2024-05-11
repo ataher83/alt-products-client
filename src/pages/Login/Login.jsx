@@ -111,16 +111,16 @@ const Login = () => {
     return (
       <div>
         <Helmet>
-            <title>The Art Gallery | Login</title>
+            <title>The Alt Products | Login</title>
         </Helmet>
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col w-3/4 lg:w-1/2">
 
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Please Login!</h1>
+                    <h1 className="text-5xl font-bold text-blue-600">Please Login!</h1>
                 </div>
 
-                <div className="card  w-full  shadow-2xl bg-green-100">
+                <div className="card  w-full  shadow-2xl bg-blue-200">
 
                     <form onSubmit={handleLogin}
                     className="card-body">
@@ -143,14 +143,14 @@ const Login = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                        <button className="btn bg-green-600 font-bold ">Login</button>
+                        <button className="btn bg-blue-500 font-bold ">Login</button>
                         </div>
                     </form>
 
                     
                     <div className="-mt-6 font-semibold text-center">
-                        <button onClick={handleGoogleSignIn} className="btn">Login with Google</button>
-                        <button onClick={handleGithubSignIn} className="btn ml-4">Login with GitHub</button>
+                        <button onClick={handleGoogleSignIn} className="btn btn-info">Login with Google</button>
+                        <button onClick={handleGithubSignIn} className="btn btn-info ml-4">Login with GitHub</button>
                     </div>
 
 
@@ -165,7 +165,7 @@ const Login = () => {
 
                     
 
-                    <p className="text-center mt-4">Do not have an account? <Link className="text-purple-600 font-bold" to="/register">Register</Link></p>
+                    <p className="text-center mt-4">Do not have an account? <Link className="text-orange-600 font-bold" to="/register">Register</Link></p>
 
                 </div>
             </div>

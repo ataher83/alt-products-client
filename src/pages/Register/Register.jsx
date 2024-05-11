@@ -114,16 +114,16 @@ const Register = () => {
     return (
         <div>
             <Helmet>
-                <title>The Art Gallery | Register</title>
+                <title>The Alt Products | Register</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col w-3/4 lg:w-1/2">
 
                     <div className="text-center">
-                        <h1 className="text-4xl font-bold">Please Register!</h1>
+                        <h1 className="text-4xl font-bold text-orange-600">Please Register!</h1>
                     </div>
 
-                    <div className="card  w-full  shadow-2xl bg-purple-100">
+                    <div className="card  w-full  shadow-2xl bg-orange-300">
 
                         <form onSubmit={handleRegister}
                         className="card-body">
@@ -179,7 +179,7 @@ const Register = () => {
 
                                 <button 
                                 // onClick={handleSignOut}
-                                className="btn bg-purple-600 font-bold text-black ">Register</button>
+                                className="btn bg-orange-600 font-bold text-black ">Register</button>
                             </div>
 
                         </form>
@@ -193,7 +193,7 @@ const Register = () => {
                             }
                         </div> */}
 
-                        <p className="text-center text-lg py-4">Already have an account? <Link className="text-green-600 font-bold" to="/login">Login</Link></p>
+                        <p className="text-center text-lg py-4">Already have an account? <Link className="text-blue-600 font-bold" to="/login">Login</Link></p>
 
                     </div>
                 </div>
