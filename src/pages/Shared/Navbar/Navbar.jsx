@@ -37,9 +37,6 @@ const Navbar = () => {
 
 
 
-
-
-
     const handleSignOut = () => {
         logOut()
             .then()
@@ -56,8 +53,6 @@ const Navbar = () => {
     {/* <li><NavLink to="/addCraftItem">Add Craft Item</NavLink></li> */}
     {/* <li><NavLink to="/myArtAndCraftList">My Art & Craft List</NavLink></li> */}
     {/* <li><NavLink to="/allArtAndCraftItems">All Art & Craft Items</NavLink></li> */}
-    {/* <li><NavLink to="/login">Login</NavLink></li> */}
-    {/* <li><NavLink to="/register">Register</NavLink></li> */}
 </>
 
     return (
