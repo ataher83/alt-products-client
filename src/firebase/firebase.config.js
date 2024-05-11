@@ -29,3 +29,14 @@ export default app;
 
 
 
+
+// new config to setup
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDJt5xs7wDifmht6pTZL1ANJiRPUQlJEtE",
+//   authDomain: "the-alt-products.firebaseapp.com",
+//   projectId: "the-alt-products",
+//   storageBucket: "the-alt-products.appspot.com",
+//   messagingSenderId: "670767849706",
+//   appId: "1:670767849706:web:9c7f92c2b1154b74727793"
+// };
+
