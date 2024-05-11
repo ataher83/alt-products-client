@@ -29,12 +29,14 @@ import AddQueries from "../pages/AddQueries/AddQueries";
         {
             path:'/',
             element: <Home></Home>,
-            loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+            loader: () => fetch('http://localhost:5000/queries')
+            // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
         
         },
         {
             path:'/queries',
             element: <Queries></Queries>,
+            loader: () => fetch('http://localhost:5000/queries')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
         },
         {

@@ -1,0 +1,75 @@
+[
+    {
+      "productImage": "https://example.com/iphone.jpg",
+      "productName": "iPhone 13",
+      "productBrand": "Apple",
+      "queryTitle": "Seeking alternatives to iPhone 13",
+      "boycottingReasonDetails": "High price and limited customization options",
+      "userEmail": "user1@example.com",
+      "userName": "John Doe",
+      "userImage": "https://example.com/user1.jpg",
+      "currentDateAndTime": "2024-05-11T10:30:00",
+      "recommendationCount": 20
+    },
+    {
+      "productImage": "https://example.com/hp-laptop.jpg",
+      "productName": "HP Pavilion 15",
+      "productBrand": "HP",
+      "queryTitle": "Need advice on a better laptop than HP Pavilion 15",
+      "boycottingReasonDetails": "Overheating issues and slow performance",
+      "userEmail": "user2@example.com",
+      "userName": "Jane Smith",
+      "userImage": "https://example.com/user2.jpg",
+      "currentDateAndTime": "2024-05-11T11:45:00",
+      "recommendationCount": 15
+    },
+    {
+      "productImage": "https://example.com/cocacola.jpg",
+      "productName": "Coca-Cola",
+      "productBrand": "Coca-Cola",
+      "queryTitle": "Looking for a better soft drink than Coca-Cola",
+      "boycottingReasonDetails": "High sugar content and environmental concerns",
+      "userEmail": "user3@example.com",
+      "userName": "Emily Johnson",
+      "userImage": "https://example.com/user3.jpg",
+      "currentDateAndTime": "2024-05-11T12:30:00",
+      "recommendationCount": 18
+    },
+    {
+      "productImage": "https://example.com/pizza.jpg",
+      "productName": "Margherita Pizza",
+      "productBrand": "Pizzeria Italia",
+      "queryTitle": "Is there a better pizza than Margherita Pizza?",
+      "boycottingReasonDetails": "Lack of toppings and soggy crust",
+      "userEmail": "user4@example.com",
+      "userName": "Michael Brown",
+      "userImage": "https://example.com/user4.jpg",
+      "currentDateAndTime": "2024-05-11T13:45:00",
+      "recommendationCount": 12
+    },
+    {
+      "productImage": "https://example.com/samsung-galaxy.jpg",
+      "productName": "Samsung Galaxy S22",
+      "productBrand": "Samsung",
+      "queryTitle": "Seeking alternatives to Samsung Galaxy S22",
+      "boycottingReasonDetails": "High price and lack of software updates",
+      "userEmail": "user5@example.com",
+      "userName": "Sophia Miller",
+      "userImage": "https://example.com/user5.jpg",
+      "currentDateAndTime": "2024-05-11T14:30:00",
+      "recommendationCount": 22
+    },
+    {
+      "productImage": "https://example.com/burger.jpg",
+      "productName": "Classic Cheeseburger",
+      "productBrand": "Burger King",
+      "queryTitle": "Looking for a better burger than Classic Cheeseburger",
+      "boycottingReasonDetails": "Small portion size and bland taste",
+      "userEmail": "user6@example.com",
+      "userName": "William Taylor",
+      "userImage": "https://example.com/user6.jpg",
+      "currentDateAndTime": "2024-05-11T15:15:00",
+      "recommendationCount": 10
+    }
+  ]
+  

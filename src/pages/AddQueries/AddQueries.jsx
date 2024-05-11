@@ -24,18 +24,18 @@ const AddQueries = () => {
         const recommendationCount = form.recommendationCount.value;
         
 
+        const newQuery = { productImage, productName, productBrand, queryTitle, boycottingReasonDetails, userEmail, userName, userImage, currentDateAndTime, recommendationCount   }
 
-        const newCraft = { productImage, productName, productBrand, queryTitle, boycottingReasonDetails, userEmail, userName, userImage, currentDateAndTime, recommendationCount   }
-
-        console.log(newCraft);
+        console.log(newQuery);
 
         // send data to the server
-        fetch('https://art-gallery-server-one.vercel.app/craft', {
+        // fetch('https://art-gallery-server-one.vercel.app/craft', {
+        fetch('http://localhost:5000/queries', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCraft)
+            body: JSON.stringify(newQuery)
         })
             .then(res => res.json())
             .then(data => {
@@ -43,7 +43,7 @@ const AddQueries = () => {
                 if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Craft Added Successfully',
+                        text: 'Query Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Close'
                       })
@@ -167,7 +167,7 @@ const AddQueries = () => {
                                 <span className="label-text">Current Date and Time</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="currentDateAndTime" placeholder="Current Date and Time" defaultValue={new Date().toLocaleTimeString('en-US', { hour12: false }).slice(0, 5)} disabled className="input input-bordered w-full" />
+                                <input type="text" name="currentDateAndTime" placeholder="Current Date and Time" defaultValue={new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} disabled className="input input-bordered w-full" />
                             </label>
                         </div>
 
@@ -192,182 +192,6 @@ const AddQueries = () => {
                     <input type="submit" value="Add Query" className="btn btn-block btn-info text-xl" />
 
                 </form>
-
-
-
-
-
-
-                
-
-                {/* <form onSubmit={handleAddQueries}  className="bg-blue-200 rounded-xl p-5 font-semibold">
-
-                    <div className="mb-8">
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Image</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                    
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Item Name</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="itemName" placeholder="Item Name" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-
-                        <div className="form-control md:w-1/2 ml-4">
-
-                            <label className="label">
-                                <span className="label-text">Subcategory Name</span>
-                            </label>
-                            
-                            <select className="h-12 border-black border rounded-lg w-full " name="subcategoryName" id="t">
-                                <option value="">-- Select a Subcategory Name --</option>
-                                <option value="LandscapePainting">Landscape Painting</option>
-                                <option value="PortraitDrawing">Portrait Drawing</option>
-                                <option value="WatercolourPainting">Watercolour Painting</option>
-                                <option value="OilPainting">Oil Painting</option>
-                                <option value="CharcoalSketching">Charcoal Sketching</option>
-                                <option value="CartoonDrawing">Cartoon Drawing</option>
-                            </select>
-                        
-                        </div>
-
-
-
-
-                    </div>
-
-
-
-
-
-
-
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Short Description</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="shortDescription" placeholder="Short Description" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">Price</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
-                   
-
-
-
-
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">Customization</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="customization" placeholder="example- Yes/ No" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
-
-
-
-
-
-                    
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Processing Time</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="processingTime" placeholder="Processing Time" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">Stock Status</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="stockStatus" placeholder="example- In stock/ Made to Order" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-                    
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">User Email</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="userEmail" placeholder="User Email" defaultValue={user.email} disabled className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">User Name</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="userName" placeholder="User Name" defaultValue={user.displayName} disabled className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
-
-
-
-                    <input type="submit" value="Add" className="btn btn-block btn-info text-xl" />
-
-
-
-                </form> */}
-
 
 
             </div>
