@@ -40,7 +40,6 @@ const Navbar = () => {
 
 
 
-
     const handleSignOut = () => {
         logOut()
             .then()
@@ -157,7 +156,7 @@ const Navbar = () => {
             </div> */}
 
             <div>
-                <label className="swap swap-rotate ">
+                <label className="swap swap-rotate">
                     
                     {/* this hidden checkbox controls the state */}
                     <input 
@@ -173,11 +172,7 @@ const Navbar = () => {
                     
                 </label>
             </div>
-
             
-
-
-
         </div>
     );
 };
