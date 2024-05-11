@@ -60,12 +60,13 @@ const Queries = () => {
                     
                                        
                                         <div className="card-actions justify-center items-center">
-                                            <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Posted at: {query.currentDateAndTime}</div> 
+                                            <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Posted at: {query.currentDateAndTime}</div>
+                                            <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Posted by: {query.userName}</div>  
                                             {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">productBrand: {productBrand}</div>  */}
                                         </div>
                                         <div className="card-actions justify-center items-center">
                                             {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {userEmail}</div>  */}
-                                            <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Posted by: {query.userName}</div> 
+                                            <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Recommendation: {query.recommendationCount}</div> 
                                         </div>
                     
                     
@@ -84,7 +85,7 @@ const Queries = () => {
                     
                     
                                         <div className="text-center mt-5">
-                                            <Link to={`/queryDetails/${_id}`}><button className="btn btn-secondary w-1/3 ">View Details</button></Link>
+                                            <Link to={`/queryDetails/${query._id}`}><button className="btn btn-info w-1/3 ">Recommend</button></Link>
                                         </div>
                                         
 

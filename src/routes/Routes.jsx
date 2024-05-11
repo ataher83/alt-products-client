@@ -18,6 +18,7 @@ import RecommendationsForMe from "../pages/RecommendationsForMe/RecommendationsF
 import MyQueries from "../pages/MyQueries/MyQueries";
 import MyRecommendations from "../pages/MyRecommendations/MyRecommendations";
 import AddQueries from "../pages/AddQueries/AddQueries";
+import QueryDetails from "../pages/QueryDetails/QueryDetails";
 
 
   const router = createBrowserRouter([
@@ -38,6 +39,15 @@ import AddQueries from "../pages/AddQueries/AddQueries";
             element: <Queries></Queries>,
             loader: () => fetch('http://localhost:5000/queries')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+        },
+        {
+            path:'/queryDetails/:id',
+            element: <QueryDetails></QueryDetails>,
+            loader: () => fetch('http://localhost:5000/queries')
+            // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+            // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
+            // loader: ({params}) => fetch(`https://art-gallery-server-one.vercel.app/craft/${params.id}`)
+            // loader: ({params}) => fetch(`http://localhost:5000/queries/${params.id}`)
         },
         {
             path:'/recommendationsForMe',

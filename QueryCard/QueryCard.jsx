@@ -48,7 +48,7 @@ const QueryCard = ({ query, queries, setQueries }) => {
     
         <div className="card bg-base-100 shadow-xl mt-4">
 
-                <figure><img className="w-full h-72" src={productImage} alt="Craft Image" />
+                <figure><img className="w-full h-72" src={productImage} alt="Query Image" />
                 </figure>
 
                 <div className="flex justify-between px-2 pt-1 font-semibold">
