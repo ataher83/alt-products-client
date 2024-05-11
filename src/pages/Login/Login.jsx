@@ -150,7 +150,7 @@ const Login = () => {
                     
                     <div className="-mt-6 font-semibold text-center">
                         <button onClick={handleGoogleSignIn} className="btn btn-info">Login with Google</button>
-                        <button onClick={handleGithubSignIn} className="btn btn-info ml-4">Login with GitHub</button>
+                        {/* <button onClick={handleGithubSignIn} className="btn btn-info ml-4">Login with GitHub</button> */}
                     </div>
 
 
