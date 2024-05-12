@@ -1,5 +1,5 @@
 [
-    {
+  {
       "productImage": "https://example.com/iphone.jpg",
       "productName": "iPhone 13",
       "productBrand": "Apple",
@@ -10,8 +10,8 @@
       "userImage": "https://example.com/user1.jpg",
       "currentDateAndTime": "2024-05-11T10:30:00",
       "recommendationCount": 20
-    },
-    {
+  },
+  {
       "productImage": "https://example.com/hp-laptop.jpg",
       "productName": "HP Pavilion 15",
       "productBrand": "HP",
@@ -22,8 +22,8 @@
       "userImage": "https://example.com/user2.jpg",
       "currentDateAndTime": "2024-05-11T11:45:00",
       "recommendationCount": 15
-    },
-    {
+  },
+  {
       "productImage": "https://example.com/cocacola.jpg",
       "productName": "Coca-Cola",
       "productBrand": "Coca-Cola",
@@ -34,8 +34,8 @@
       "userImage": "https://example.com/user3.jpg",
       "currentDateAndTime": "2024-05-11T12:30:00",
       "recommendationCount": 18
-    },
-    {
+  },
+  {
       "productImage": "https://example.com/pizza.jpg",
       "productName": "Margherita Pizza",
       "productBrand": "Pizzeria Italia",
@@ -46,8 +46,8 @@
       "userImage": "https://example.com/user4.jpg",
       "currentDateAndTime": "2024-05-11T13:45:00",
       "recommendationCount": 12
-    },
-    {
+  },
+  {
       "productImage": "https://example.com/samsung-galaxy.jpg",
       "productName": "Samsung Galaxy S22",
       "productBrand": "Samsung",
@@ -58,8 +58,8 @@
       "userImage": "https://example.com/user5.jpg",
       "currentDateAndTime": "2024-05-11T14:30:00",
       "recommendationCount": 22
-    },
-    {
+  },
+  {
       "productImage": "https://example.com/burger.jpg",
       "productName": "Classic Cheeseburger",
       "productBrand": "Burger King",
@@ -70,6 +70,77 @@
       "userImage": "https://example.com/user6.jpg",
       "currentDateAndTime": "2024-05-11T15:15:00",
       "recommendationCount": 10
-    }
-  ]
-  
+  },
+  {
+      "productImage": "https://example.com/nike-shoes.jpg",
+      "productName": "Nike Air Force 1",
+      "productBrand": "Nike",
+      "queryTitle": "Looking for alternatives to Nike Air Force 1",
+      "boycottingReasonDetails": "Expensive and uncomfortable",
+      "userEmail": "user7@example.com",
+      "userName": "Emma Brown",
+      "userImage": "https://example.com/user7.jpg",
+      "currentDateAndTime": "2024-05-11T16:30:00",
+      "recommendationCount": 17
+  },
+  {
+      "productImage": "https://example.com/coffee.jpg",
+      "productName": "Espresso",
+      "productBrand": "Starbucks",
+      "queryTitle": "Need a better coffee than Espresso",
+      "boycottingReasonDetails": "Too strong and bitter",
+      "userEmail": "user8@example.com",
+      "userName": "Daniel Johnson",
+      "userImage": "https://example.com/user8.jpg",
+      "currentDateAndTime": "2024-05-11T17:45:00",
+      "recommendationCount": 14
+  },
+  {
+      "productImage": "https://example.com/headphones.jpg",
+      "productName": "Sony WH-1000XM4",
+      "productBrand": "Sony",
+      "queryTitle": "Looking for better headphones than Sony WH-1000XM4",
+      "boycottingReasonDetails": "Uncomfortable and poor noise cancellation",
+      "userEmail": "user9@example.com",
+      "userName": "Olivia Smith",
+      "userImage": "https://example.com/user9.jpg",
+      "currentDateAndTime": "2024-05-11T18:30:00",
+      "recommendationCount": 16
+  },
+  {
+      "productImage": "https://example.com/book.jpg",
+      "productName": "The Great Gatsby",
+      "productBrand": "Penguin Books",
+      "queryTitle": "Seeking alternatives to The Great Gatsby",
+      "boycottingReasonDetails": "Difficult language and lack of engaging plot",
+      "userEmail": "user10@example.com",
+      "userName": "Ethan Wilson",
+      "userImage": "https://example.com/user10.jpg",
+      "currentDateAndTime": "2024-05-11T19:15:00",
+      "recommendationCount": 11
+  },
+  {
+      "productImage": "https://example.com/camera.jpg",
+      "productName": "Canon EOS Rebel T7i",
+      "productBrand": "Canon",
+      "queryTitle": "Looking for a better camera than Canon EOS Rebel T7i",
+      "boycottingReasonDetails": "Poor low-light performance and autofocus issues",
+      "userEmail": "user11@example.com",
+      "userName": "Liam Martinez",
+      "userImage": "https://example.com/user11.jpg",
+      "currentDateAndTime": "2024-05-11T20:30:00",
+      "recommendationCount": 19
+  },
+  {
+      "productImage": "https://example.com/mouse.jpg",
+      "productName": "Logitech MX Master 3",
+      "productBrand": "Logitech",
+      "queryTitle": "Seeking alternatives to Logitech MX Master 3",
+      "boycottingReasonDetails": "Uncomfortable grip and connectivity issues",
+      "userEmail": "user12@example.com",
+      "userName": "Ava Garcia",
+      "userImage": "https://example.com/user12.jpg",
+      "currentDateAndTime": "2024-05-11T21:45:00",
+      "recommendationCount": 13
+  }
+]

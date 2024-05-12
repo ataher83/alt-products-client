@@ -44,27 +44,20 @@ const QueryDetails = () => {
                         
                         </h2>
                     </div>
-                        
-                    
-                    {/* <p className="text-center font-normal text-orange-400 pb-2">{queryTitle}</p> */}
-                        
+                                                
                     <p className="text-center pb-2">{query.boycottingReasonDetails}</p>
 
-                
                     <div className="card-actions justify-center items-center">
                         <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Posted at: {query.currentDateAndTime}</div> 
                         <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Posted by: {query.userName}</div> 
                     </div>
+                    
                     <div className="card-actions justify-center items-center">
                         <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Recommendation: {query.recommendationCount}</div>
 
-                        <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {query.userEmail}</div> 
-                         
+                        <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {query.userEmail}</div>                          
                     </div>
-
-                    
-
-
+                   
 
                     {/* Just Show User Image */}
                     <div className="flex justify-center" >
@@ -72,17 +65,11 @@ const QueryDetails = () => {
                     </div>
 
 
-
-
-
-
-
-
-
-                    {/* <div className="text-center mt-5">
-                        <Link to={`/craftDetails/${_id}`}><button className="btn btn-secondary w-1/3 ">View Details</button></Link>
-                    </div> */}
-                    
+                    <div className="flex justify-center gap-10 mt-5">
+                        {/* <Link to={`/queryDetails/${query._id}`}><button className="btn btn-info w-1/3 ">Recommend</button></Link> */}
+                        <button className="btn btn-info w-1/3 ">Add Recommendation</button>
+                        <button className="btn btn-info w-1/3 ">All Recommendations</button>
+                    </div>            
 
                 </div>
                 </div>

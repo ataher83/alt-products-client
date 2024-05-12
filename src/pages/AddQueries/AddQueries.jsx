@@ -29,7 +29,6 @@ const AddQueries = () => {
         console.log(newQuery);
 
         // send data to the server
-        // fetch('https://art-gallery-server-one.vercel.app/craft', {
         fetch('http://localhost:5000/queries', {
             method: 'POST',
             headers: {
@@ -167,7 +166,7 @@ const AddQueries = () => {
                                 <span className="label-text">Current Date and Time</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="currentDateAndTime" placeholder="Current Date and Time" defaultValue={new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} disabled className="input input-bordered w-full" />
+                                <input type="text" name="currentDateAndTime" placeholder="Current Date and Time" defaultValue={new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', ' + new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })} disabled className="input input-bordered w-full" />
                             </label>
                         </div>
 
