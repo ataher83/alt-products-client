@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-
 import  { useContext, useEffect, useState } from 'react';
-import { IoLogoUsd } from "react-icons/io";
-import { FcRating } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
-
-import { RiArrowDropDownLine } from "react-icons/ri";
-
 import Swal from "sweetalert2";
 
 
@@ -15,7 +9,6 @@ import Swal from "sweetalert2";
 const MyQueries = () => {
 
     const { user } = useContext(AuthContext); 
-
     const [queries, setQueries] = useState([])
 
 
@@ -26,7 +19,6 @@ const MyQueries = () => {
     }, [])
 
     // console.log(queries)
-
 
     const myQueries = queries.filter(query => query.userEmail == user.email)
     // console.log(myQueries)
@@ -69,15 +61,11 @@ const MyQueries = () => {
 
 
 
-
-
     return (
         <div>
             <Helmet>
                 <title>The Alt Products | My Queries</title>
             </Helmet>
-
-
 
 
             {/* Banner section */}
@@ -101,15 +89,21 @@ const MyQueries = () => {
 
 
 
-
-
             {/* My Query Section */}
             <div>
                 {/* <h1 className='text-2xl font-semibold text-center text-blue-600 py-5'>My All Queries</h1> */}
 
                     <div>
                         <h1 className='text-2xl font-semibold text-center text-blue-600 '>MY All Queries</h1>
-                        <h2 className='text-base font-medium text-center'>(Total Queries: {myQueries.length})</h2>
+                        {/* <h2 className='text-base font-medium text-center'>(Total Queries: {myQueries.length})</h2> */}
+                        {/* <p>{myQueries.length < 1 ? 'No Query Found' : ' Query available' }</p> */}
+
+                        <div className="text-base font-medium text-center">
+                            { myQueries.length < 1 ? (<p className="text-orange-600 font-medium text-xl ">Sorry! No Query Found, <br /> You have not added any Query yet. Please add your Query now.</p>) : (<p>(Total Queries: {myQueries.length})</p>) }
+                            { myQueries.length < 1 && ( <Link to="/addQueries"><button className="btn btn-info w-1/3 my-5">Add Query</button></Link> ) }
+                        </div>
+
+
                         
                         <div  className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"> 
                         {
@@ -287,8 +281,6 @@ const MyQueries = () => {
 
 
             </div>
-
-
 
         </div>
     );

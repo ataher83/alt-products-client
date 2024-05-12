@@ -60,23 +60,16 @@ const QueryCard = ({ query, queries, setQueries }) => {
                     <div className="flex gap-2 items-center justify-center">
                         
                         <h2 className=" lg:card-title text-center text-orange-600">
-                            {queryTitle}
-                           
+                            {queryTitle}     
                         </h2>
-                    </div>
-                        
-                    
-                    {/* <p className="text-center font-normal text-orange-400 pb-2">{queryTitle}</p> */}
-                        
+                    </div>                      
                     <p className="text-center pb-2">{boycottingReasonDetails}</p>
-
-                   
+                  
                     <div className="card-actions justify-center items-center">
                         <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Posted at: {currentDateAndTime}</div> 
-                        {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">productBrand: {productBrand}</div>  */}
                     </div>
+
                     <div className="card-actions justify-center items-center">
-                        {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {userEmail}</div>  */}
                         <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Posted by: {userName}</div> 
                     </div>
 
@@ -95,58 +88,16 @@ const QueryCard = ({ query, queries, setQueries }) => {
 
 
 
-                    {/* <div className="text-center mt-5">
-                        <Link to={`/craftDetails/${_id}`}><button className="btn btn-secondary w-1/3 ">View Details</button></Link>
-                    </div> */}
+                   
                     
 
                 </div>
         </div>
 
-
-
-        {/* <div className="card card-side bg-base-100 shadow-xl">
-
-            <figure><img src={image} alt="Movie" /></figure>
-
-            <div className="flex justify-between w-full pr-4">
-                <div>
-                    <h2 className="card-title">Name: {itemName}</h2>
-                    <p>{subcategoryName}</p>
-                    <p>{shortDescription}</p>
-                    <p>{price}</p>
-                    <p>{rating}</p>
-                    <p>{customization}</p>
-                    <p>{processingTime}</p>
-                    <p>{stockStatus}</p>
-                    <p>{userEmail}</p>
-                    <p>{userName}</p>
-                </div>
-                
-
-
-
-
-
-                <div className=" card-actions justify-end">
-                    <div className="btn-group btn-group-vertical space-y-2 flex flex-col">
-                        <button className="btn">View</button>
-                        <Link to={`updateCraft/${_id}`}>
-                        <button className="btn">Edit</button>
-                        </Link>
-                        <button
-                            onClick={() => handleDelete(_id)}
-                            className="btn bg-red-500">X</button>
-                    </div>
-                </div>
-            </div>
-        </div> */}
-
     </div>
 
     );
 };
-
 
 
 
