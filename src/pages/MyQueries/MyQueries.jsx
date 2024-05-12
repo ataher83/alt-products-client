@@ -113,7 +113,7 @@ const MyQueries = () => {
                         
                         <div  className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"> 
                         {
-                            myQueries.map(myQuery =>
+                            myQueries.sort((a, b) => new Date(b.currentDateAndTime) - new Date(a.currentDateAndTime)).map(myQuery =>
 
                             <div>
     
@@ -161,6 +161,20 @@ const MyQueries = () => {
                                           <div className="text-center mt-5">
                                                 <Link to={`/queryDetails/${myQuery._id}`}><button className="btn btn-info w-1/3 ">View Details</button></Link>
                                             </div>
+
+                                            <div className="text-center py-5 space-x-5">
+
+                                                <Link to={`../updateQuery/${myQuery._id}`}>
+                                                    <button className="btn btn-info w-1/3 ">Update</button>
+                                                </Link>
+
+                                                <button
+                                                    onClick={() => handleDelete(myQuery._id)}
+                                                    className="btn btn-info w-1/3 ">Delete
+                                                </button>
+                                                    
+                                            </div>
+
                                                                 
                                         </div>
                                 </div>
