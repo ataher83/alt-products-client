@@ -1,9 +1,84 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
+import  { useContext, useEffect, useState } from 'react';
+import { IoLogoUsd } from "react-icons/io";
+import { FcRating } from "react-icons/fc";
+import { AuthContext } from "../../providers/AuthProvider";
+
+import { RiArrowDropDownLine } from "react-icons/ri";
+
+import Swal from "sweetalert2";
+
 
 
 const MyQueries = () => {
+
+    const { user } = useContext(AuthContext); 
+
+    const [queries, setQueries] = useState([])
+
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/queries')
+                .then(res => res.json())
+                .then(data => setQueries(data))
+    }, [])
+
+    // console.log(queries)
+
+
+    const myQueries = queries.filter(query => query.userEmail == user.email)
+    // console.log(myQueries)
+
+
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+
+                fetch(`http://localhost:5000/queries/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Query has been deleted.',
+                                'success'
+                            )
+                            const remaining = queries.filter(r => r._id !== _id);
+                            setQueries(remaining);
+                        }
+                    })
+
+            }
+        })
+    }
+
+
+
+
+
     return (
         <div>
+            <Helmet>
+                <title>The Alt Products | My Queries</title>
+            </Helmet>
+
+
+
 
             {/* Banner section */}
             <div className='container mx-auto my-10'>
@@ -25,7 +100,179 @@ const MyQueries = () => {
             </div>
 
 
+
+
+
             {/* My Query Section */}
+            <div>
+                {/* <h1 className='text-2xl font-semibold text-center text-blue-600 py-5'>My All Queries</h1> */}
+
+                    <div>
+                        <h1 className='text-2xl font-semibold text-center text-blue-600 '>MY All Queries</h1>
+                        <h2 className='text-base font-medium text-center'>(Total Queries: {myQueries.length})</h2>
+                        
+                        <div  className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"> 
+                        {
+                            myQueries.map(myQuery =>
+
+                            <div>
+    
+                                <div className="card bg-base-100 shadow-xl mt-4">
+                        
+                                        <figure><img className="w-full h-72" src={myQuery.productImage} alt="Query Image" />
+                                        </figure>
+                        
+                                        <div className="flex justify-between px-2 pt-1 font-semibold">
+                                            <p className=" bg-orange-400 rounded capitalize px-1">{myQuery.productName}</p>
+                                            <p className="bg-orange-400 rounded capitalize px-1"><span>{myQuery.productBrand}</span></p>
+                                        </div>
+                        
+                                        <div className="card-body px-1">
+                                            <div className="flex gap-2 items-center justify-center">
+                                                
+                                                <h2 className=" lg:card-title text-center text-orange-600">
+                                                    {myQuery.queryTitle}
+                                                   
+                                                </h2>
+                                            </div>
+                                                
+                                                
+                                            <p className="text-center pb-2">{myQuery.boycottingReasonDetails}</p>
+                        
+                                           
+                                            <div className="card-actions justify-center items-center">
+                                                <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Posted at: {myQuery.currentDateAndTime}</div>
+                                                <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Posted by: {myQuery.userName}</div>  
+                                            </div>
+
+                                            <div className="card-actions justify-center items-center">
+                                                {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {userEmail}</div>  */}
+                                                <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Recommendation: {myQuery.recommendationCount}</div> 
+                                            </div>
+                        
+                                          
+                                            {/* Just Show User Image */}
+                                            <div className="flex justify-center" >
+                                                <img className="w-24 rounded-2xl" src={myQuery.userImage} />   
+                                            </div>
+                        
+                        
+                        
+                                          <div className="text-center mt-5">
+                                                <Link to={`/queryDetails/${myQuery._id}`}><button className="btn btn-info w-1/3 ">View Details</button></Link>
+                                            </div>
+                                                                
+                                        </div>
+                                </div>
+                        
+                        
+                        
+                                {/* <div className="card card-side bg-base-100 shadow-xl">
+                        
+                                    <figure><img src={image} alt="Movie" /></figure>
+                        
+                                    <div className="flex justify-between w-full pr-4">
+                                        <div>
+                                            <h2 className="card-title">Name: {itemName}</h2>
+                                            <p>{subcategoryName}</p>
+                                            <p>{shortDescription}</p>
+                                            <p>{price}</p>
+                                            <p>{rating}</p>
+                                            <p>{customization}</p>
+                                            <p>{processingTime}</p>
+                                            <p>{stockStatus}</p>
+                                            <p>{userEmail}</p>
+                                            <p>{userName}</p>
+                                        </div>
+                                        
+                        
+                        
+                        
+                        
+                        
+                                        <div className=" card-actions justify-end">
+                                            <div className="btn-group btn-group-vertical space-y-2 flex flex-col">
+                                                <button className="btn">View</button>
+                                                <Link to={`updateCraft/${_id}`}>
+                                                <button className="btn">Edit</button>
+                                                </Link>
+                                                <button
+                                                    onClick={() => handleDelete(_id)}
+                                                    className="btn bg-red-500">X</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> */}
+                        
+                            </div>
+
+
+
+
+
+
+
+
+
+                        
+                                // <div className="card bg-base-100 shadow-xl mt-4">
+
+                                //     <figure><img className="w-full h-72" src={myCraft.image} alt="Craft Image" />
+                                //     </figure>
+
+                                //     <div className="flex justify-between px-2 pt-1 font-semibold">
+                                //         <p className="flex items-center"><FcRating className="text-blue-400" /> {myCraft.rating}</p>
+                                //         <p className="flex items-center"><IoLogoUsd className="text-blue-400" /> {myCraft.price}</p>
+                                //         <p className="bg-orange-400 rounded  capitalize px-1"><span >{myCraft.stockStatus}</span></p>
+                                //     </div>
+
+                                //     <div className="card-body px-1">
+                                //         <div className="flex gap-2 items-center justify-center">
+                                            
+                                //             <h2 className=" lg:card-title text-center text-orange-600">
+                                //                 {myCraft.itemName}
+                                            
+                                //             </h2>
+                                //         </div>
+                                            
+                                        
+                                //         <p className="text-center font-normal text-orange-400 pb-2">{myCraft.subcategoryName}</p>
+                                            
+                                //         <p className="text-center pb-2">{myCraft.shortDescription}</p>
+
+
+                                //         <div className="card-actions justify-center items-center">
+                                //             <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Customization: {myCraft.customization}</div> 
+                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">ProcessingTime: {myCraft.processingTime}</div> 
+                                //         </div>
+                                //         <div className="card-actions justify-center items-center">
+                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {myCraft.userEmail}</div> 
+                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Name: {myCraft.userName}</div> 
+                                //         </div>
+                                //     </div>
+
+                                //     <div className="text-center py-5 space-x-5">
+
+                                //         <Link to={`../updateCraft/${myCraft._id}`}>
+                                //             <button className="btn btn-secondary w-1/3 ">Update</button>
+                                //         </Link>
+                                        
+                                //         <button
+                                //         onClick={() => handleDelete(myCraft._id)}
+                                //         className="btn btn-secondary w-1/3 ">Delete
+                                //         </button>
+                                            
+                                //     </div>
+
+                                // </div>    
+                            )
+                        }
+                        </div>
+                    </div>
+
+
+
+            </div>
 
 
 

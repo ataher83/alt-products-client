@@ -28,21 +28,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 
 
-
-
-
-
 const MyArtAndCraftList = () => {
     const { user } = useContext(AuthContext); 
 
     const [crafts, setCrafts] = useState([])
-
-
-
-
-
-
-
 
 
 
@@ -83,16 +72,6 @@ const MyArtAndCraftList = () => {
     //         //console.log()
     //     }
     // }, [readListBooks]) 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -154,8 +133,6 @@ const MyArtAndCraftList = () => {
             }
         })
     }
-
-
 
 
 
