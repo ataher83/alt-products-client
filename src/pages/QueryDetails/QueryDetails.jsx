@@ -43,19 +43,19 @@ const QueryDetails = () => {
         const recommenderEmail = form.recommenderEmail.value;
         const recommenderName = form.recommenderName.value;
         const recommendationDateTime = form.recommendationDateTime.value;
-
-
-        const productImage = form.productImage.value;
-        const productBrand = form.productBrand.value;
-        const boycottingReasonDetails = form.boycottingReasonDetails.value;
-        // const userImage = form.userImage.value;
         const recommendationCount = form.recommendationCount.value;
+
+
+        // const productImage = form.productImage.value;
+        // const productBrand = form.productBrand.value;
+        // const boycottingReasonDetails = form.boycottingReasonDetails.value;
+        // const userImage = form.userImage.value;
         
 
         const newRecommendation = { recommendationTitle, recommendedProductName, recommendedProductImage, recommendationReason, recommenderEmail, recommenderName, 
-            queryId, productImage, productName, productBrand, queryTitle, boycottingReasonDetails, queryCreatorEmail, queryCreatorName, recommendationDateTime, recommendationCount   }
+        queryId, productName, queryTitle, queryCreatorEmail, queryCreatorName, recommendationDateTime, recommendationCount }
 
-        console.log(newRecommendation);
+        // console.log(newRecommendation);
 
         // send data to the server
         fetch('https://alt-products-server.vercel.app/recommendations', {
@@ -78,6 +78,16 @@ const QueryDetails = () => {
                       
                 }
             })
+    }
+
+
+
+    const handleAddARecommendationNow=() =>{
+        const addARecommendationNowButton = document.getElementById('addARecommendationNowButton');
+        const recommendationDiv = document.getElementById('recommendationDiv');
+
+        recommendationDiv.classList.toggle('hidden')
+        addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : 'No, Will Recommend Later'
     }
 
 
@@ -130,8 +140,10 @@ const QueryDetails = () => {
 
                     <div className="flex justify-center gap-10 mt-5">
                         {/* <Link to={`/queryDetails/${query._id}`}><button className="btn btn-info w-1/3 ">Recommend</button></Link> */}
-                        <button className="btn btn-info w-1/3 ">Add Recommendation</button>
-                        <button className="btn btn-info w-1/3 ">All Recommendations</button>
+                        <button onClick={handleAddARecommendationNow}
+                        id="addARecommendationNowButton"
+                        className="btn btn-info w-1/3 ">Add A Recommendation Now</button>
+                        <button className="btn btn-info w-1/3 ">Show All Recommendations</button>
                     </div>            
 
                 </div>
@@ -142,7 +154,7 @@ const QueryDetails = () => {
 
 
             {/* Add Recommendation Section */}
-            <div className="bg-[#F4F3F0] px-24 py-5">
+            <div id="recommendationDiv" className="hidden bg-[#F4F3F0] px-24 py-5">
                 <h2 className="text-2xl font-extrabold text-center text-blue-600 py-5">Add A Recommendation</h2>
 
                 <form onSubmit={handleAddRecommendation}  className="bg-blue-200 rounded-xl p-5 font-semibold">
@@ -208,12 +220,12 @@ const QueryDetails = () => {
 
                     {/* Query Text */}
                     <div className="flex justify-center" >
-                        <h3 className="text-xl font-semibold">You are Recommending for:</h3>  
+                        <h3 className="text-xl font-semibold">You are Recommending For:</h3>  
                     </div>
 
-                    {/*  Query Id */}
-                    <div className="mb-8">
-                        <div className="form-control w-full">
+                    {/*  Query Id and Product Name */}
+                    <div className="md:flex mb-8">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Query Id</span>
                             </label>
@@ -221,7 +233,17 @@ const QueryDetails = () => {
                                 <input type="text" name="queryId" placeholder="Query Id" defaultValue={id} disabled className="input input-bordered w-full" />
                             </label>
                         </div>
+
+                        <div className="form-control md:w-1/2 ml-4">
+                            <label className="label">
+                                <span className="label-text">Product Name</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="productName" defaultValue={query.productName} disabled  placeholder="Product Name" className="input input-bordered w-full" />
+                            </label>
+                        </div>
                     </div>
+                                   
 
                     {/* Query TItle */}
                     <div className="md:flex mb-8">
@@ -235,27 +257,6 @@ const QueryDetails = () => {
                         </div>
                     </div>                   
 
-                    {/* Product Name*/}
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text">Product Name</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="productName" defaultValue={query.productName} disabled  placeholder="Product Name" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-
-                        {/* <div className="form-control md:w-1/2 ml-4">
-                            <label className="label">
-                                <span className="label-text">Product Brand</span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="productBrand" placeholder="Product Brand" className="input input-bordered w-full" />
-                            </label>
-                        </div> */}
-                    </div>
 
                     {/* Query-Creator Email and Query-Creator Name */}
                     <div className="md:flex mb-8">
@@ -299,9 +300,9 @@ const QueryDetails = () => {
                         </div>
                     </div>
 
-                    {/* Recommendation Time (Current Date and Time) */}
+                    {/* Total Recommendation (Recommendation Count) and  Recommendation Time (Current Date and Time) */}
                     <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Recommendation Date & Time</span>
                             </label>
@@ -309,11 +310,8 @@ const QueryDetails = () => {
                                 <input type="text" name="recommendationDateTime" placeholder="Recommendation Date & Time" defaultValue={new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', ' + new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })} disabled className="input input-bordered w-full" />
                             </label>
                         </div>
-                    </div>
-
-                    {/* Total Recommendation (Recommendation Count) */}
-                    <div className="md:flex mb-8">
-                        <div className="form-control md:w-1/2 lg:w-full">
+                   
+                        <div className="form-control md:w-1/2 ml-4">
                             <label className="label">
                                 <span className="label-text">Total Recommendation</span>
                             </label>
@@ -322,6 +320,8 @@ const QueryDetails = () => {
                             </label>
                         </div>
                     </div>
+
+
 
 
                     <input type="submit" value="Add Recommendation" className="btn btn-block btn-info text-xl" />
