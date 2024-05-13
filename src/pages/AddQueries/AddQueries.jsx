@@ -26,7 +26,7 @@ const AddQueries = () => {
 
         const newQuery = { productImage, productName, productBrand, queryTitle, boycottingReasonDetails, userEmail, userName, userImage, currentDateAndTime, recommendationCount   }
 
-        console.log(newQuery);
+        // console.log(newQuery);
 
         // send data to the server
         fetch('https://alt-products-server.vercel.app/queries', {

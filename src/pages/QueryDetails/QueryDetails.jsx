@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { useContext } from "react";
+import  { useContext, useEffect, useState } from 'react';
 import { Helmet } from "react-helmet-async";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../providers/AuthProvider";
@@ -20,6 +20,32 @@ const QueryDetails = () => {
     const query = queries.find(q => q._id == id) 
     // console.log( id, crafts )
 
+
+
+
+
+
+
+
+    const [recommendations, setRecommendations] = useState([])
+
+    useEffect(()=>{
+        fetch('https://alt-products-server.vercel.app/recommendations')
+                .then(res => res.json())
+                .then(data => setRecommendations(data))
+    }, [])
+
+    const particularQueryRecommendations = recommendations.filter(recommendation => recommendation.queryId == id)
+
+    console.log(particularQueryRecommendations)
+
+
+
+
+
+
+
+
     
 
 
@@ -36,6 +62,7 @@ const QueryDetails = () => {
 
 
         const queryId = form.queryId.value;
+
         const queryTitle = form.queryTitle.value;
         const productName = form.productName.value;
         const queryCreatorEmail = form.queryCreatorEmail.value;
@@ -43,7 +70,14 @@ const QueryDetails = () => {
         const recommenderEmail = form.recommenderEmail.value;
         const recommenderName = form.recommenderName.value;
         const recommendationDateTime = form.recommendationDateTime.value;
+
         const recommendationCount = form.recommendationCount.value;
+
+        // Parse recommendationCount as integer
+        // const recommendationCount = parseInt(form.recommendationCount.value);
+
+        // Increment the recommendation count by 1
+        // const updatedRecommendationCount = recommendationCount + 1;
 
 
         // const productImage = form.productImage.value;
@@ -53,11 +87,16 @@ const QueryDetails = () => {
         
 
         const newRecommendation = { recommendationTitle, recommendedProductName, recommendedProductImage, recommendationReason, recommenderEmail, recommenderName, 
-        queryId, productName, queryTitle, queryCreatorEmail, queryCreatorName, recommendationDateTime, recommendationCount }
+        queryId, productName, queryTitle, queryCreatorEmail, queryCreatorName, recommendationDateTime, 
+        recommendationCount,
+        // recommendationCount: updatedRecommendationCount.toString(), 
+        // Convert to string for consistency
+     }
 
         // console.log(newRecommendation);
 
         // send data to the server
+        // fetch('https://alt-products-server.vercel.app/recommendations', {
         fetch('https://alt-products-server.vercel.app/recommendations', {
             method: 'POST',
             headers: {
@@ -69,6 +108,7 @@ const QueryDetails = () => {
             .then(data => {
                 console.log(data);
                 if(data.insertedId){
+                    // Recommendation added successfully, update the UI if needed
                     Swal.fire({
                         title: 'Success!',
                         text: 'Recommendation Added Successfully',
@@ -82,12 +122,109 @@ const QueryDetails = () => {
 
 
 
+    // const handleAddRecommendation = event => {
+    //     event.preventDefault();
+    
+    //     const form = event.target;
+    
+    //     // Extracting recommendation details from the form
+    //     const recommendationTitle = form.recommendationTitle.value;
+    //     const recommendedProductName = form.recommendedProductName.value;
+    //     const recommendedProductImage = form.recommendedProductImage.value;
+    //     const recommendationReason = form.recommendationReason.value;
+    
+    //     // Extracting query details from the form
+    //     const queryId = form.queryId.value;
+    
+    //     // Construct the new recommendation object
+    //     const newRecommendation = {
+    //         recommendationTitle,
+    //         recommendedProductName,
+    //         recommendedProductImage,
+    //         recommendationReason,
+    //         recommenderEmail: form.recommenderEmail.value,
+    //         recommenderName: form.recommenderName.value,
+    //         queryId,
+    //         productName: form.productName.value,
+    //         queryTitle: form.queryTitle.value,
+    //         queryCreatorEmail: form.queryCreatorEmail.value,
+    //         queryCreatorName: form.queryCreatorName.value,
+    //         recommendationDateTime: form.recommendationDateTime.value,
+    //     };
+    
+    //     // Send data to the server to add the recommendation
+    //     fetch('https://alt-products-server.vercel.app/recommendations', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(newRecommendation)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         if (data.insertedId) {
+    //             // Recommendation added successfully, update the recommendation count in the database
+    //             fetch(`https://alt-products-server.vercel.app/queries/${queryId}/incrementRecommendationCount`, {
+    //                 method: 'PATCH',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({ incrementBy: 1 })
+    //             })
+    //             .then(res => res.json())
+    //             .then(updatedQuery => {
+    //                 console.log('Recommendation count updated:', updatedQuery);
+    //                 // Optionally, you can update the UI here with the updated recommendation count
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error updating recommendation count:', error);
+    //                 // Handle errors if any
+    //             });
+                
+    //             // Show success message or update UI if needed
+    //             Swal.fire({
+    //                 title: 'Success!',
+    //                 text: 'Recommendation Added Successfully',
+    //                 icon: 'success',
+    //                 confirmButtonText: 'Close'
+    //             });
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error('Error adding recommendation:', error);
+    //         // Handle errors if any
+    //     });
+    // };
+    
+
+
+
+
+    // const handleAddARecommendationNow = (buttonId) => {
+    //     const button = document.getElementById(buttonId);
+    //     const otherButtonId = buttonId === 'addARecommendationNowButton' ? 'showAllRecommendationsButton' : 'addARecommendationNowButton';
+    //     const otherButton = document.getElementById(otherButtonId);
+        
+    //     button.classList.toggle('hidden');
+    //     otherButton.classList.remove('hidden');
+    // };
+    
+
     const handleAddARecommendationNow=() =>{
         const addARecommendationNowButton = document.getElementById('addARecommendationNowButton');
         const recommendationDiv = document.getElementById('recommendationDiv');
 
-        recommendationDiv.classList.toggle('hidden')
-        addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : 'No, Will Recommend Later'
+        recommendationDiv.classList.toggle('hidden');
+        addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : 'No, Will Recommend Later';
+    }
+
+    const handleShowAllRecommendations=() =>{     
+        const showAllRecommendationsButton = document.getElementById('showAllRecommendationsButton');
+        const allRecommendationsDiv = document.getElementById('allRecommendationsDiv');
+
+        allRecommendationsDiv.classList.toggle('hidden');
+        showAllRecommendationsButton.textContent = allRecommendationsDiv.classList.contains('hidden') ? 'Show All Recommendations' : 'Hide All Recommendations';
     }
 
 
@@ -97,6 +234,8 @@ const QueryDetails = () => {
             <Helmet>
             <title>The Alt Products | Query Details: {query._id}</title>
             </Helmet>
+
+            <h2 className="text-xl font-bold text-center text-blue-600">Details About This Query</h2>
 
             {/* Show Query Details */}
             <div className="card bg-base-100 shadow-xl mt-4">
@@ -138,12 +277,25 @@ const QueryDetails = () => {
                     </div>
 
 
+{/* <button 
+id="addARecommendationNowButton" 
+onclick="handleAddARecommendationNow('addARecommendationNowButton')"
+>Add A Recommendation Now</button>
+
+<button id="showAllRecommendationsButton" onclick="handleAddARecommendationNow('showAllRecommendationsButton')">Show All Recommendations</button> */}
+
+
+
                     <div className="flex justify-center gap-10 mt-5">
                         {/* <Link to={`/queryDetails/${query._id}`}><button className="btn btn-info w-1/3 ">Recommend</button></Link> */}
-                        <button onClick={handleAddARecommendationNow}
+                        <button 
+                        onClick={handleAddARecommendationNow}
                         id="addARecommendationNowButton"
                         className="btn btn-info w-1/3 ">Add A Recommendation Now</button>
-                        <button className="btn btn-info w-1/3 ">Show All Recommendations</button>
+
+                        <button onClick={handleShowAllRecommendations}
+                        id="showAllRecommendationsButton"
+                         className="btn btn-info w-1/3">Show All Recommendations</button>
                     </div>            
 
                 </div>
@@ -327,6 +479,58 @@ const QueryDetails = () => {
                     <input type="submit" value="Add Recommendation" className="btn btn-block btn-info text-xl" />
 
                 </form>
+
+
+            </div>
+
+
+            {/* Show All the Recommendations Section */}
+            <div id="allRecommendationsDiv" className="hidden">
+
+                <h3 className="text-center text-xl font-bold text-blue-600">Show All the recommendations Section here</h3>
+
+
+
+
+
+                {
+                    particularQueryRecommendations.map( particularQueryRecommendation => (
+
+                        <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
+                        {/* <div className="flex justify-between pb-4 border-bottom">
+                            <div className="flex items-center">
+                                <a rel="noopener noreferrer" href="#" className="mb-0 capitalize dark:text-gray-800">Photography</a>
+                            </div>
+                            <a rel="noopener noreferrer" href="#">See All</a>
+                        </div> */}
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <img src={particularQueryRecommendation.recommendedProductImage} />
+                                <div className=" text-xs">
+                                    <p> {particularQueryRecommendation.recommendationDateTime}</p>
+                                    <p> {particularQueryRecommendation.recommenderName}</p>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <a rel="noopener noreferrer" href="#" className="block">
+                                    <h3 className="text-xl font-bold dark:text-violet-600">{particularQueryRecommendation.recommendedProductName}</h3>
+                                </a>
+                                <a rel="noopener noreferrer" href="#" className="block">
+                                    <h3 className="text-lg font-semibold dark:text-violet-600">{particularQueryRecommendation.recommendationTitle}</h3>
+                                </a>
+                                <p className="leading-snug dark:text-gray-600">{particularQueryRecommendation.recommendationReason}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    ) )
+                }
+
+
+
+
+
+
 
 
             </div>

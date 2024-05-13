@@ -14,6 +14,7 @@ const MyQueries = () => {
 
     useEffect(()=>{
         fetch('https://alt-products-server.vercel.app/queries')
+        // fetch('https://alt-products-server.vercel.app/queries')
                 .then(res => res.json())
                 .then(data => setQueries(data))
     }, [])
@@ -21,6 +22,8 @@ const MyQueries = () => {
     // console.log(queries)
 
     const myQueries = queries.filter(query => query.userEmail == user.email)
+
+    
     // console.log(myQueries)
 
 
@@ -91,20 +94,16 @@ const MyQueries = () => {
 
             {/* My Query Section */}
             <div>
-                {/* <h1 className='text-2xl font-semibold text-center text-blue-600 py-5'>My All Queries</h1> */}
-
+               
                     <div>
                         <h1 className='text-2xl font-semibold text-center text-blue-600 '>MY All Queries</h1>
-                        {/* <h2 className='text-base font-medium text-center'>(Total Queries: {myQueries.length})</h2> */}
-                        {/* <p>{myQueries.length < 1 ? 'No Query Found' : ' Query available' }</p> */}
 
                         <div className="text-base font-medium text-center">
                             { myQueries.length < 1 ? (<p className="text-orange-600 font-medium text-xl ">Sorry! No Query Found, <br /> You have not added any Query yet. Please add your Query now.</p>) : (<p>(Total Queries: {myQueries.length})</p>) }
                             { myQueries.length < 1 && ( <Link to="/addQueries"><button className="btn btn-info w-1/3 my-5">Add Query</button></Link> ) }
                         </div>
 
-
-                        
+                       
                         <div  className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"> 
                         {
                             myQueries.sort((a, b) => new Date(b.currentDateAndTime) - new Date(a.currentDateAndTime)).map(myQuery =>
@@ -140,7 +139,6 @@ const MyQueries = () => {
                                             </div>
 
                                             <div className="card-actions justify-center items-center">
-                                                {/* <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {userEmail}</div>  */}
                                                 <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Recommendation: {myQuery.recommendationCount}</div> 
                                             </div>
                         
@@ -150,8 +148,7 @@ const MyQueries = () => {
                                                 <img className="w-24 rounded-2xl" src={myQuery.userImage} />   
                                             </div>
                         
-                        
-                        
+                       
                                           <div className="text-center mt-5">
                                                 <Link to={`/queryDetails/${myQuery._id}`}><button className="btn btn-info w-1/3 ">View Details</button></Link>
                                             </div>
@@ -168,118 +165,17 @@ const MyQueries = () => {
                                                 </button>
                                                     
                                             </div>
-
-                                                                
+                                                               
                                         </div>
                                 </div>
-                        
-                        
-                        
-                                {/* <div className="card card-side bg-base-100 shadow-xl">
-                        
-                                    <figure><img src={image} alt="Movie" /></figure>
-                        
-                                    <div className="flex justify-between w-full pr-4">
-                                        <div>
-                                            <h2 className="card-title">Name: {itemName}</h2>
-                                            <p>{subcategoryName}</p>
-                                            <p>{shortDescription}</p>
-                                            <p>{price}</p>
-                                            <p>{rating}</p>
-                                            <p>{customization}</p>
-                                            <p>{processingTime}</p>
-                                            <p>{stockStatus}</p>
-                                            <p>{userEmail}</p>
-                                            <p>{userName}</p>
-                                        </div>
-                                        
-                        
-                        
-                        
-                        
-                        
-                                        <div className=" card-actions justify-end">
-                                            <div className="btn-group btn-group-vertical space-y-2 flex flex-col">
-                                                <button className="btn">View</button>
-                                                <Link to={`updateCraft/${_id}`}>
-                                                <button className="btn">Edit</button>
-                                                </Link>
-                                                <button
-                                                    onClick={() => handleDelete(_id)}
-                                                    className="btn bg-red-500">X</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                        
+                                                
                             </div>
-
-
-
-
-
-
-
-
-
-                        
-                                // <div className="card bg-base-100 shadow-xl mt-4">
-
-                                //     <figure><img className="w-full h-72" src={myCraft.image} alt="Craft Image" />
-                                //     </figure>
-
-                                //     <div className="flex justify-between px-2 pt-1 font-semibold">
-                                //         <p className="flex items-center"><FcRating className="text-blue-400" /> {myCraft.rating}</p>
-                                //         <p className="flex items-center"><IoLogoUsd className="text-blue-400" /> {myCraft.price}</p>
-                                //         <p className="bg-orange-400 rounded  capitalize px-1"><span >{myCraft.stockStatus}</span></p>
-                                //     </div>
-
-                                //     <div className="card-body px-1">
-                                //         <div className="flex gap-2 items-center justify-center">
-                                            
-                                //             <h2 className=" lg:card-title text-center text-orange-600">
-                                //                 {myCraft.itemName}
-                                            
-                                //             </h2>
-                                //         </div>
-                                            
-                                        
-                                //         <p className="text-center font-normal text-orange-400 pb-2">{myCraft.subcategoryName}</p>
-                                            
-                                //         <p className="text-center pb-2">{myCraft.shortDescription}</p>
-
-
-                                //         <div className="card-actions justify-center items-center">
-                                //             <div className="badge badge-outline bg-blue-400 font-semibold text-white border-blue-500">Customization: {myCraft.customization}</div> 
-                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">ProcessingTime: {myCraft.processingTime}</div> 
-                                //         </div>
-                                //         <div className="card-actions justify-center items-center">
-                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Email: {myCraft.userEmail}</div> 
-                                //             <div className="badge badge-outline  bg-blue-400 font-semibold text-white border-blue-500">Name: {myCraft.userName}</div> 
-                                //         </div>
-                                //     </div>
-
-                                //     <div className="text-center py-5 space-x-5">
-
-                                //         <Link to={`../updateCraft/${myCraft._id}`}>
-                                //             <button className="btn btn-secondary w-1/3 ">Update</button>
-                                //         </Link>
-                                        
-                                //         <button
-                                //         onClick={() => handleDelete(myCraft._id)}
-                                //         className="btn btn-secondary w-1/3 ">Delete
-                                //         </button>
-                                            
-                                //     </div>
-
-                                // </div>    
+                                
                             )
                         }
                         </div>
                     </div>
-
-
-
+                        
             </div>
 
         </div>

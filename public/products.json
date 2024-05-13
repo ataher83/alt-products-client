@@ -142,5 +142,158 @@
       "userImage": "https://example.com/user12.jpg",
       "currentDateAndTime": "2024-05-11T21:45:00",
       "recommendationCount": 13
-  }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "productImage": "https://example.com/smartwatch.jpg",
+      "productName": "Apple Watch Series 7",
+      "productBrand": "Apple",
+      "queryTitle": "Seeking alternatives to Apple Watch Series 7",
+      "boycottingReasonDetails": "Expensive and limited battery life",
+      "userEmail": "user16@example.com",
+      "userName": "Sophie Anderson",
+      "userImage": "https://example.com/user16.jpg",
+      "currentDateAndTime": "2024-05-12T01:45:00",
+      "recommendationCount": 18
+    },
+    {
+      "productImage": "https://example.com/sneakers.jpg",
+      "productName": "Adidas Ultraboost",
+      "productBrand": "Adidas",
+      "queryTitle": "Looking for alternatives to Adidas Ultraboost",
+      "boycottingReasonDetails": "Uncomfortable fit and lack of durability",
+      "userEmail": "user17@example.com",
+      "userName": "Lucas Garcia",
+      "userImage": "https://example.com/user17.jpg",
+      "currentDateAndTime": "2024-05-12T02:30:00",
+      "recommendationCount": 16
+    },
+    {
+      "productImage": "https://example.com/television.jpg",
+      "productName": "Samsung QLED Q80A",
+      "productBrand": "Samsung",
+      "queryTitle": "Seeking alternatives to Samsung QLED Q80A",
+      "boycottingReasonDetails": "Poor color accuracy and software bugs",
+      "userEmail": "user18@example.com",
+      "userName": "Isabella Brown",
+      "userImage": "https://example.com/user18.jpg",
+      "currentDateAndTime": "2024-05-12T03:15:00",
+      "recommendationCount": 14
+    },
+    {
+      "productImage": "https://example.com/backpack.jpg",
+      "productName": "The North Face Borealis Backpack",
+      "productBrand": "The North Face",
+      "queryTitle": "Need a better backpack than The North Face Borealis",
+      "boycottingReasonDetails": "Uncomfortable straps and lack of compartments",
+      "userEmail": "user19@example.com",
+      "userName": "Mia Wilson",
+      "userImage": "https://example.com/user19.jpg",
+      "currentDateAndTime": "2024-05-12T04:30:00",
+      "recommendationCount": 20
+    },
+    {
+      "productImage": "https://example.com/smartphone.jpg",
+      "productName": "Google Pixel 6",
+      "productBrand": "Google",
+      "queryTitle": "Seeking alternatives to Google Pixel 6",
+      "boycottingReasonDetails": "Subpar camera quality and slow software updates",
+      "userEmail": "user20@example.com",
+      "userName": "Ethan Brown",
+      "userImage": "https://example.com/user20.jpg",
+      "currentDateAndTime": "2024-05-12T05:45:00",
+      "recommendationCount": 15
+    },
+    {
+      "productImage": "https://example.com/tablet.jpg",
+      "productName": "iPad Air (2022)",
+      "productBrand": "Apple",
+      "queryTitle": "Looking for alternatives to iPad Air (2022)",
+      "boycottingReasonDetails": "High price and lack of USB-C port",
+      "userEmail": "user21@example.com",
+      "userName": "Sophia Taylor",
+      "userImage": "https://example.com/user21.jpg",
+      "currentDateAndTime": "2024-05-12T06:30:00",
+      "recommendationCount": 12
+    },
+    {
+      "productImage": "https://example.com/gaming-laptop.jpg",
+      "productName": "ASUS ROG Zephyrus G14",
+      "productBrand": "ASUS",
+      "queryTitle": "Need advice on a better gaming laptop than ASUS ROG Zephyrus G14",
+      "boycottingReasonDetails": "Overheating issues and noisy fans",
+      "userEmail": "user22@example.com",
+      "userName": "Daniel Rodriguez",
+      "userImage": "https://example.com/user22.jpg",
+      "currentDateAndTime": "2024-05-12T07:15:00",
+      "recommendationCount": 19
+    },
+    {
+      "productImage": "https://example.com/chocolate.jpg",
+      "productName": "Cadbury Dairy Milk",
+      "productBrand": "Cadbury",
+      "queryTitle": "Seeking alternatives to Cadbury Dairy Milk",
+      "boycottingReasonDetails": "Too sweet and artificial tasting",
+      "userEmail": "user23@example.com",
+      "userName": "Ella Martinez",
+      "userImage": "https://example.com/user23.jpg",
+      "currentDateAndTime": "2024-05-12T08:30:00",
+      "recommendationCount": 16
+    },
+    {
+      "productImage": "https://example.com/monitor.jpg",
+      "productName": "Dell Ultrasharp U2720Q",
+      "productBrand": "Dell",
+      "queryTitle": "Looking for alternatives to Dell Ultrasharp U2720Q",
+      "boycottingReasonDetails": "Dead pixels and flickering issues",
+      "userEmail": "user24@example.com",
+      "userName": "Aiden Johnson",
+      "userImage": "https://example.com/user24.jpg",
+      "currentDateAndTime": "2024-05-12T09:45:00",
+      "recommendationCount": 17
+    },
+    {
+      "productImage": "https://example.com/earphones.jpg",
+      "productName": "Bose QuietComfort Earbuds",
+      "productBrand": "Bose",
+      "queryTitle": "Need a better pair of earphones than Bose QuietComfort Earbuds",
+      "boycottingReasonDetails": "Uncomfortable fit and poor battery life",
+      "userEmail": "user25@example.com",
+      "userName": "Mason Garcia",
+      "userImage": "https://example.com/user25.jpg",
+      "currentDateAndTime": "2024-05-12T10:30:00",
+      "recommendationCount": 13
+    }
+
+
+
+
+
+
+
+
+
+    
+  ]
+  
+
+
+
+
+
+
+
+
+
 ]
