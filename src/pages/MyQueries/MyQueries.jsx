@@ -13,7 +13,7 @@ const MyQueries = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/queries')
+        fetch('https://alt-products-server.vercel.app/queries')
                 .then(res => res.json())
                 .then(data => setQueries(data))
     }, [])
@@ -38,7 +38,7 @@ const MyQueries = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/queries/${_id}`, {
+                fetch(`https://alt-products-server.vercel.app/queries/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

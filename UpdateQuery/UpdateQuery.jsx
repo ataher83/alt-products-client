@@ -29,7 +29,7 @@ const UpdateQuery = () => {
         console.log(updatedQuery);
 
         // send data to the server
-        fetch(`http://localhost:5000/queries/${_id}`, {
+        fetch(`https://alt-products-server.vercel.app/queries/${_id}`, {
             method: 'PUT',
             
             headers: {

@@ -31,24 +31,24 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
         {
             path:'/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/queries')
+            loader: () => fetch('https://alt-products-server.vercel.app/queries')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
         
         },
         {
             path:'/queries',
             element: <Queries></Queries>,
-            loader: () => fetch('http://localhost:5000/queries')
+            loader: () => fetch('https://alt-products-server.vercel.app/queries')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
         },
         {
             path:'/queryDetails/:id',
             element: <QueryDetails></QueryDetails>,
-            loader: () => fetch('http://localhost:5000/queries')
+            loader: () => fetch('https://alt-products-server.vercel.app/queries')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
             // loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
             // loader: ({params}) => fetch(`https://art-gallery-server-one.vercel.app/craft/${params.id}`)
-            // loader: ({params}) => fetch(`http://localhost:5000/queries/${params.id}`)
+            // loader: ({params}) => fetch(`https://alt-products-server.vercel.app/queries/${params.id}`)
         },
         {
             path:'/recommendationsForMe',
@@ -65,7 +65,7 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
         {
             path:'/updateQuery/:id',
             element: <PrivateRoute><UpdateQuery></UpdateQuery></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/queries/${params.id}`)
+            loader: ({params}) => fetch(`https://alt-products-server.vercel.app/queries/${params.id}`)
         },
         {
             path:'/myRecommendations',
