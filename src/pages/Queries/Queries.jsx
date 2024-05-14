@@ -2,13 +2,12 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import { Fade, Slide } from "react-awesome-reveal";
-import QueryCard from "../../../QueryCard/QueryCard";
+// import QueryCard from "../../../QueryCard/QueryCard";
 
 const Queries = () => {
 
     const loadedQueries = useLoaderData()
     const[queries, setQueries] = useState(loadedQueries)
-
 
 
     // const [gridLayout, setGridLayout] = useState("grid-cols-2");
@@ -17,12 +16,28 @@ const Queries = () => {
     //     setGridLayout(gridLayout === "grid-cols-2" ? "grid-cols-3" : "grid-cols-2");
     // };
 
-
     const [gridLayout, setGridLayout] = useState("sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3");
+
+    const [searchQuery, setSearchQuery] = useState("");
+
+
 
     const toggleGridLayout = () => {
         setGridLayout(gridLayout === "md:grid-cols-2 lg:grid-cols-3" ? "md:grid-cols-3 lg:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3");
     };
+
+
+
+    const handleSearch = (event) => {
+        const value = event.target.value;
+        setSearchQuery(value);
+        const filteredQueries = loadedQueries.filter((query) => query.productName.toLowerCase().includes(value.toLowerCase()));
+        setQueries(filteredQueries);
+    };
+
+
+
+
 
 
 
@@ -55,6 +70,19 @@ const Queries = () => {
                     >
                         Toggle Grid Layout
                     </button>
+                </div>
+
+
+
+                {/* Search Input */}
+                <div className="text-center mt-4">
+                    <input
+                        type="text"
+                        placeholder="Search by product name"
+                        className="border border-gray-300 px-4 py-2 rounded-md"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                    />
                 </div>
 
 
