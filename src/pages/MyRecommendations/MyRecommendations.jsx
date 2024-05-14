@@ -77,46 +77,48 @@ const MyRecommendations = () => {
 
 
 
+            {/* Showing My All Recommendations */}
+
+
             {
                 myRecommendations.map(myRecommendation => 
 
+                    <div className="overflow-x-auto">
+                        
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div className=" md:flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="rounded-lg md:w-48 md:h-24 ">
+                                                    <img src={myRecommendation.recommendedProductImage} />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="font-bold text-base">{myRecommendation.recommendedProductName}</div>
+                                                <div className="text-sm opacity-50 font-bold">For: {myRecommendation.queryCreatorName}</div>
+                                            </div>
+                                        </div>
+                                    </td>
 
-<div className="overflow-x-auto">
-    
-    <table className="table">
-        <tbody>
-            <tr>
-                <td>
-                    <div className="flex items-center gap-3">
-                        <div className="avatar">
-                            <div className="rounded-lg w-48 h-24 ">
-                                <img src={myRecommendation.recommendedProductImage} />
-                            </div>
-                        </div>
-                        <div>
-                            <div className="font-bold text-base">{myRecommendation.recommendedProductName}</div>
-                            <div className="text-sm opacity-50 font-bold">For: {myRecommendation.queryCreatorName}</div>
-                        </div>
+                                    <td>
+                                        <span className="font-semibold">{myRecommendation.recommendationTitle}</span>
+                                        <br/>
+                                        <span className="badge badge-ghost badge-sm">{myRecommendation.recommendationReason}</span>
+                                    </td>
+
+                                    <td>{myRecommendation.recommendationDateTime}</td>
+
+                                    <th>
+                                        <button onClick={() => handleDelete(myRecommendation._id)}
+                                        className="btn btn-info btn-xs">Delete</button>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
-                </td>
-
-                <td>
-                    <span className="font-semibold">{myRecommendation.recommendationTitle}</span>
-                    <br/>
-                    <span className="badge badge-ghost badge-sm">{myRecommendation.recommendationReason}</span>
-                </td>
-
-                <td>{myRecommendation.recommendationDateTime}</td>
-
-                <th>
-                    <button onClick={() => handleDelete(myRecommendation._id)}
-                    className="btn btn-info btn-xs">Delete</button>
-                </th>
-            </tr>
-        </tbody>
-    </table>
-
-</div>
 
 
 
