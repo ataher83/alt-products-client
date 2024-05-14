@@ -7,7 +7,24 @@ import QueryCard from "../../../QueryCard/QueryCard";
 const Queries = () => {
 
     const loadedQueries = useLoaderData()
-    const[queries, setQueries] = useState(loadedQueries) 
+    const[queries, setQueries] = useState(loadedQueries)
+
+
+
+    // const [gridLayout, setGridLayout] = useState("grid-cols-2");
+
+    // const toggleGridLayout = () => {
+    //     setGridLayout(gridLayout === "grid-cols-2" ? "grid-cols-3" : "grid-cols-2");
+    // };
+
+
+    const [gridLayout, setGridLayout] = useState("sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3");
+
+    const toggleGridLayout = () => {
+        setGridLayout(gridLayout === "md:grid-cols-2 lg:grid-cols-3" ? "md:grid-cols-3 lg:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3");
+    };
+
+
 
     return (
         <div>
@@ -27,6 +44,25 @@ const Queries = () => {
                     </Slide>
                 </p>
                 <h2 className="text-center font-semibold">(Total Queries: {queries.length})</h2>
+
+
+
+                {/* Toggle Grid Layout Button */}
+                <div className="text-center mt-4 hidden md:block">
+                    <button
+                        className="btn btn-info"
+                        onClick={toggleGridLayout}
+                    >
+                        Toggle Grid Layout
+                    </button>
+                </div>
+
+
+
+
+
+
+
                 
             {/* Show All Queries */}  
             {/* এখানে কার্ড গুলো সমান হয় নায়, তাই এই কোড কমেন্ট করে নিচের কোড ব্যবহার করেছি* সেইম কোড, কিন্তু কারন বুঝলাম না, বুঝতে হবে  */}
@@ -96,12 +132,18 @@ const Queries = () => {
 
 
 
-                {/* Show  Recent/ Latest 6 Queries */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto "> 
+                {/* Show All Queries by Descending order base on date-time */}
+
+                <div className={`grid ${gridLayout} gap-5 container mx-auto`}>
+                {/* <div className={`grid ${gridLayout} md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto`}>  */}
+                {/* <div className={`grid ${gridLayout} gap-5 container mx-auto`}>  */}
+                {/* <div className="grid
+                 md:grid-cols-2 lg:grid-cols-3 
+                 gap-5 container mx-auto
+                 ${gridLayout} 
+                 ">  */}
                                             
                         {
-                            // queries.map((query, index) => (
-                            // queries.sort((a, b) => new Date(b.currentDateAndTime) - new Date(a.currentDateAndTime)).slice(0, 6).map((query, index) => (
                             queries.sort((a, b) => new Date(b.currentDateAndTime) - new Date(a.currentDateAndTime)).map((query, index) => (
 
                                 <div key={index} className="card bg-base-100 shadow-xl mt-4">

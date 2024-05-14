@@ -3,6 +3,7 @@ import  { useContext, useEffect, useState } from 'react';
 import { Helmet } from "react-helmet-async";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const QueryDetails = () => {
     const { user } = useContext(AuthContext); 
@@ -498,7 +499,21 @@ onclick="handleAddARecommendationNow('addARecommendationNowButton')"
             {/* Show All the Recommendations Section */}
             <div id="allRecommendationsDiv" className="hidden">
 
-                <h3 className="text-center text-xl font-bold text-blue-600">Show All the recommendations Section here</h3>
+                {/* <h1 className="text-center text-xl font-bold text-blue-600">All the ParticularQuery Recommendations</h1> */}
+                <h1 className='text-2xl font-semibold text-center text-blue-600 '>Particular Query Recommendations</h1>
+
+                <div className="text-base font-medium text-center py-10">
+
+                    { particularQueryRecommendations.length < 1 ? (<p className="text-orange-600 font-medium text-xl ">Sorry!! No Recommendations Found. <br /> No one may have added any recommendations for this Query yet. <br /> Please try again later...</p>) : (<p>(Total Recommendation: {particularQueryRecommendations.length})</p>) }
+
+                    {/* { particularQueryRecommendations.length < 1 && ( 
+                    <div>
+                        <Link to="/addQueries"><button className="btn btn-info w-1/3 my-5 mx-5">Add Query</button></Link> 
+                        <Link to="/queries"><button className="btn btn-info w-1/3 my-5 mx-5">View Queries & Recommend Now</button></Link>
+                    </div>
+                    ) } */}
+
+                </div>
 
 
 
