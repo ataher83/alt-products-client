@@ -216,7 +216,15 @@ const QueryDetails = () => {
         const recommendationDiv = document.getElementById('recommendationDiv');
 
         recommendationDiv.classList.toggle('hidden');
-        addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : 'No, Will Recommend Later';
+        // addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : 'No, Will Recommend Later';
+        // addARecommendationNowButton.textContent = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : '<p>No, Will Recommend Later <br /> Close Now <br /> X</p>';
+
+
+
+        // addARecommendationNowButton.innerHTML = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : `<p>No, Will Recommend Later.<br />Close Now<br />X</p>`;
+
+        addARecommendationNowButton.innerHTML = recommendationDiv.classList.contains('hidden') ? 'Add A Recommendation Now' : `<p class="text-white text-lg">No, I will Recommend Later. <span class="text-2xl font-bold ml-5 px-3 py-2 rounded-lg bg-black text-white ">X</span></p>`;
+
     }
 
     const handleShowAllRecommendations=() =>{     
@@ -224,7 +232,10 @@ const QueryDetails = () => {
         const allRecommendationsDiv = document.getElementById('allRecommendationsDiv');
 
         allRecommendationsDiv.classList.toggle('hidden');
-        showAllRecommendationsButton.textContent = allRecommendationsDiv.classList.contains('hidden') ? 'Show All Recommendations' : 'Hide All Recommendations';
+        // showAllRecommendationsButton.textContent = allRecommendationsDiv.classList.contains('hidden') ? 'Show All Recommendations' : 'Hide All Recommendations';
+
+
+        showAllRecommendationsButton.innerHTML = allRecommendationsDiv.classList.contains('hidden') ? 'Show All Recommendations' : `<p class="text-white text-lg">No, I will View Later.<span class="text-2xl font-bold ml-5 px-3 py-2 rounded-lg bg-black text-white ">X</span></p>`;
     }
 
 
