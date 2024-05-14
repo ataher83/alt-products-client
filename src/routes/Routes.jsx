@@ -2,17 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
-import AllArtAndCraftItems from "../pages/AllArtAndCraftItems/AllArtAndCraftItems";
-import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
-import MyArtAndCraftList from "../pages/MyArtAndCraftList/MyArtAndCraftList";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
-import Users from "../pages/Users/Users";
-import CraftDetails from "../pages/CraftDetails/CraftDetails";
-import ViewDetails from "./ViewDetails/ViewDetails";
-import ArtAndCraftCategories from "../pages/ArtAndCraftCategories/ArtAndCraftCategories";
 import Queries from "../pages/Queries/Queries";
 import RecommendationsForMe from "../pages/RecommendationsForMe/RecommendationsForMe";
 import MyQueries from "../pages/MyQueries/MyQueries";
@@ -33,6 +25,8 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
             element: <Home></Home>,
             loader: () => fetch('https://alt-products-server.vercel.app/queries')
         },
+
+
         {
             path:'/queries',
             element: <Queries></Queries>,
@@ -44,6 +38,8 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
             loader: () => fetch('https://alt-products-server.vercel.app/queries')
             // loader: ({params}) => fetch(`https://alt-products-server.vercel.app/queries/${params.id}`)
         },
+
+
         {
             path:'/recommendationsForMe',
             element: <PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
@@ -66,42 +62,7 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
             element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
         },
 
-
-
-
-
-
-        {
-            path:'/allArtAndCraftItems',
-            element: <AllArtAndCraftItems></AllArtAndCraftItems>,
-            loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
-        },
-        {
-            path:'/artAndCraftCategories',   
-            element: <ArtAndCraftCategories></ArtAndCraftCategories>,
-            loader: () => fetch('https://art-gallery-server-one.vercel.app/catagories')
-        },
-        {
-            path:'/addCraftItem',
-            element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
-        },
-        {
-            path:'/craftDetails/:id',
-            element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
-
-            // loader: ({params}) => fetch(`https://art-gallery-server-one.vercel.app/craft/${params.id}`)
-
-            loader: () => fetch('https://art-gallery-server-one.vercel.app/craft')
-        },
-        {
-            path:'/updateCraft/:id',
-            element: <UpdateCraft></UpdateCraft>,
-            loader: ({params}) => fetch(`https://art-gallery-server-one.vercel.app/craft/${params.id}`)
-        },
-        {
-            path:'/myArtAndCraftList',
-            element: <PrivateRoute><MyArtAndCraftList></MyArtAndCraftList></PrivateRoute>
-        },
+        
         {
             path:'/login',
             element: <Login></Login>
@@ -110,16 +71,7 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
             path:'/register',
             element: <Register></Register>
         },
-        {
-            path:'/users',
-            element: <Users></Users>,
-            loader: () => fetch('https://art-gallery-server-one.vercel.app/user')
-        },
-        {
-            path:'/viewDetails',
-            element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>
-            
-        }
+
 
       ]
     },

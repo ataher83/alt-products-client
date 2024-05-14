@@ -4,10 +4,11 @@ import { Link, useRouteError } from "react-router-dom";
 const ErrorPage = () => {
     const error = useRouteError();
     return (
-        <div className="bg-blue-100 text-center text-2xl flex flex-col justify-center items-center py-10">
-            <img className="w-96 ali" src="https://i.postimg.cc/MZD25wDz/404.jpg" alt="" />
+        <div className="bg-blue-100 text-center text-2xl text-blue-600 flex flex-col justify-center items-center py-10">
+            <img className="w-96 rounded-lg" src="https://i.postimg.cc/63wJ2gtR/errorpage.jpg" alt="" />
             <h1>Oops!!!</h1>
-            <p>Sorry, an unexpected error has occurred.</p>
+            <h3>Page not found.</h3>
+            <>Sorry, an unexpected error has occurred.</>
             <p>
                 {/* {error.statusText || error.message} */}
                 {
