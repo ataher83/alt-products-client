@@ -486,20 +486,17 @@ onclick="handleAddARecommendationNow('addARecommendationNowButton')"
                     </div>
 
 
-
-
                     <input type="submit" value="Add Recommendation" className="btn btn-block btn-info text-xl" />
 
                 </form>
 
-
             </div>
+
+
 
 
             {/* Show All the Recommendations Section */}
             <div id="allRecommendationsDiv" className="hidden">
-
-                {/* <h1 className="text-center text-xl font-bold text-blue-600">All the ParticularQuery Recommendations</h1> */}
                 <h1 className='text-2xl font-semibold text-center text-blue-600 '>Particular Query Recommendations</h1>
 
                 <div className="text-base font-medium text-center py-10">
