@@ -10,7 +10,7 @@ const MyRecommendations = () => {
     const [recommendations, setRecommendations] = useState([])
 
     useEffect(()=>{
-        fetch('https://alt-products-server.vercel.app/recommendations')
+        fetch('https://alt-products-server.vercel.app/recommendations', {credentials: 'include'} )
                 .then(res => res.json())
                 .then(data => setRecommendations(data))
     }, [])

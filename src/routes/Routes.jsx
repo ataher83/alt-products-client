@@ -34,7 +34,7 @@ import UpdateQuery from "../../UpdateQuery/UpdateQuery";
         },
         {
             path:'/queryDetails/:id',
-            element: <QueryDetails></QueryDetails>,
+            element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
             loader: () => fetch('https://alt-products-server.vercel.app/queries')
             // loader: ({params}) => fetch(`https://alt-products-server.vercel.app/queries/${params.id}`)
         },
