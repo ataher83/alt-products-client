@@ -10,7 +10,7 @@ import 'swiper/css/scrollbar';
 
 const Banner = () => {
     return (
-      <div className='container mx-auto'>
+      <div className='container mx-auto '>
         <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}

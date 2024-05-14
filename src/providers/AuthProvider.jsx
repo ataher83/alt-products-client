@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 
 
@@ -75,8 +76,31 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+
+            const userEmail = currentUser?.email || user?.email; 
+            const loggedUser = { email: userEmail };
+
             setUser(currentUser);
             setLoading(false)
+
+            // if user exist then issue a token
+            if (currentUser) {
+                // const loggedUser = { email: currentUser.email };
+                // const loggedUser = { email: userEmail };
+                axios.post( 'http://localhost:5000/jwt', loggedUser, { withCredentials: true })   // cross-side মানে ফ্রন্ট ও ব্যাক এন্ড ভিন্ন ভিন্ন হওয়ার জন্য ভ্যালু true হবে। 
+                .then(res => {
+                    console.log('token response', res.data) 
+                })
+            }
+            else{
+                axios.post( 'http://localhost:5000/logout', loggedUser, { withCredentials: true })   
+                .then(res => {
+                    console.log( res.data); 
+                })
+
+            }
+
+
         });
         return () => {
             unSubscribe(); 
