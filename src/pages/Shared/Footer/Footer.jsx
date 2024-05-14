@@ -5,7 +5,7 @@ const Footer = () => {
       <div className="container mx-auto ">
         <footer className="footer p-10 bg-base-300 text-base-content">
             <aside>
-                <img className="w-24" src="/public/altlogo.png" alt="" />
+                <img className="w-24" src="https://i.postimg.cc/DzMGJPTd/altlogo.png" alt="" />
                 <p className="font-semibold text-blue-500"><span className="text-2xl font-bold text-blue-600">The Alt Products</span><br/>Find Your Alternative Prooducts</p>
             </aside> 
             <nav>
