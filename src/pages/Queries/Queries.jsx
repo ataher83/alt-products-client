@@ -75,14 +75,27 @@ const Queries = () => {
 
 
                 {/* Search Input */}
-                <div className="text-center mt-4">
+                <div className="
+                flex justify-center items-center 
+                text-center mt-4 
+                ">
                     <input
                         type="text"
                         placeholder="Search by product name"
-                        className="border border-gray-300 px-4 py-2 rounded-md"
+                        className="border border-blue-600 px-10 py-2 rounded-md"
                         value={searchQuery}
                         onChange={handleSearch}
+                        
                     />
+
+                    {/* <button className="btn btn-ghost btn-circle ">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button> */}
+
+                    <span className="-ml-8"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="blue"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
+
+
+
                 </div>
 
 
